@@ -10,6 +10,6 @@ Can you guess what the code below does?
 +++.------.<<++[>>----<<-]>>.>+.
 ```
 
-Try out my [BrainfuckIntereter](https://jorexdeveloper.github.io/JavaUtils/BrainfuckInterpreter) in order to execute the code.
+Try out my [BrainfuckIntereter](https://github.com/jorexdeveloper/java-utils/tree/root/BrainfuckInterpreter) in order to execute the code.
 
 Here are the ASCII values for the text 'Hello, World':
