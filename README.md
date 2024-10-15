@@ -7,7 +7,7 @@ Can you guess what the code below does?
 ```c
 ++++++++[>+++++++++>++++++++++++>++++<<<-]>.
 >+++++.+++++++..+++.>.<<<+++++[>+++<-]>.>.
-+++.------.<<++[>>----<<-]>>.>+.
++++.------.<<++[>>----<<-]>>.>+.>++++[<----->-]<---.
 ```
 
 Try out my [BrainfuckIntereter](https://github.com/jorexdeveloper/java-utils/tree/root/BrainfuckInterpreter) in order to execute the code.
