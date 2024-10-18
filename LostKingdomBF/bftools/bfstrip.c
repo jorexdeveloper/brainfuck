@@ -29,47 +29,41 @@ long count;
 
 long newline_count;
 
-void ask_newline()
-{
-	if (++newline_count == 72)
-	{
+void ask_newline() {
+	if (++newline_count == 72) {
 		fputc('\n', stdout);
 		newline_count = 0;
 	}
 }
 
-void print_n_times_x(long n, int x)
-{
+void print_n_times_x(long n, int x) {
 	long i;
 
-	if (n<0) for (i =-n; i>0; i--)
-	{
-		fputc(x-1, stdout);
-		ask_newline();
-	}
-	if (n>0) for (i = n; i>0; i--)
-	{
-		fputc(x+1, stdout);
-		ask_newline();
-	}
+	if (n < 0)
+		for (i = -n; i > 0; i--) {
+			fputc(x - 1, stdout);
+			ask_newline();
+		}
+	if (n > 0)
+		for (i = n; i > 0; i--) {
+			fputc(x + 1, stdout);
+			ask_newline();
+		}
 }
 
-
-void minimalize(int type)
-{
+void minimalize(int type) {
 	count += c - type;
 
-	while (!feof(stdin))
-	{
+	while (!feof(stdin)) {
 		c = fgetc(stdin);
 
-		if (( c != '<' ) && ( c != '>' ) &&
-			( c != '+' ) && ( c != '-' ) &&
-			( c != '[' ) && ( c != ']' ) &&
-			( c != ',' ) && ( c != '.' )) continue;
+		if ((c != '<') && (c != '>') &&
+			(c != '+') && (c != '-') &&
+			(c != '[') && (c != ']') &&
+			(c != ',') && (c != '.'))
+			continue;
 
-		if ( (c != type +1) && (c != type -1) )
-		{
+		if ((c != type + 1) && (c != type - 1)) {
 			ungetc(c, stdin);
 			break;
 		}
@@ -80,27 +74,27 @@ void minimalize(int type)
 	print_n_times_x(count, type);
 }
 
-
-int main(int argc, char **argv)
-{
-
+int main(int argc, char **argv) {
 	newline_count = 0;
 
-	while (!feof(stdin))
-	{
+	while (!feof(stdin)) {
 		count = 0;
 
 		c = fgetc(stdin);
 
-		switch (c)
-		{
-			case '<': case '>':
+		switch (c) {
+			case '<':
+			case '>':
 				minimalize('=');
 				break;
-			case '+': case '-':
+			case '+':
+			case '-':
 				minimalize(',');
 				break;
-			case '[': case ']': case ',': case '.':
+			case '[':
+			case ']':
+			case ',':
+			case '.':
 				fputc(c, stdout);
 				ask_newline();
 				break;
@@ -109,9 +103,9 @@ int main(int argc, char **argv)
 		}
 	}
 
-	fputc('@',stdout);
-	if (newline_count) fputc('\n', stdout);
+	fputc('@', stdout);
+	if (newline_count)
+		fputc('\n', stdout);
 
 	exit(0);
 }
-
